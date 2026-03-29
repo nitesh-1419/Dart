@@ -1,181 +1,26 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp()); // Entry point of app
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  TextEditingController controller = TextEditingController();
-
-  String result = "";
-  int currentIndex = 0;
-
-  void checkEvenOdd() {
-    int num = int.parse(controller.text);
-
-    setState(() {
-      result = (num % 2 == 0) ? "Even" : "Odd";
-    });
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Result: $result")),
-    );
-  }
-
-  void goNext() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SecondPage(text: result),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Full App")),
-
-      // 🔹 Drawer
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text("Menu", style: TextStyle(color: Colors.white)),
-            ),
-            ListTile(
-              title: const Text("Home"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text("Next Page"),
-              onTap: goNext,
-            ),
-          ],
+    return MaterialApp(
+      title: 'Hello Flutter App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My First App'),
         ),
-      ),
-
-      // 🔹 Body Layout
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-
-            // Input
-            TextField(
-              controller: controller,
-              decoration: const InputDecoration(
-                labelText: "Enter Number",
-                border: OutlineInputBorder(),
-              ),
+        body: Center(
+          child: Text(
+            'Hello Flutter',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
-
-            const SizedBox(height: 20),
-
-            // Buttons Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: checkEvenOdd,
-                  child: const Text("Check"),
-                ),
-                ElevatedButton(
-                  onPressed: goNext,
-                  child: const Text("Next"),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 20),
-
-            // Output
-            Text(
-              result,
-              style: const TextStyle(fontSize: 22),
-            ),
-          ],
-        ),
-      ),
-
-      // 🔹 Bottom Navigation
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-
-          if (index == 1) {
-            goNext();
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.arrow_forward),
-            label: "Next",
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
-// 🔹 Second Page
-class SecondPage extends StatelessWidget {
-  final String text;
-
-  const SecondPage({super.key, required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Second Page")),
-
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Result: $text",
-              style: const TextStyle(fontSize: 22),
-            ),
-
-            const SizedBox(height: 20),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text("Back"),
-            ),
-          ],
         ),
       ),
     );
