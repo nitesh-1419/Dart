@@ -1,0 +1,25 @@
+void main (){
+
+int number 1 = 5;
+
+print("value of number is $ number 1");
+double number 2 =40.50%
+
+print (" Value of number 2 is $number 2");
+
+num number 3 =50;
+
+num number 4=60.99;
+
+print (" value of number 3 is $ number 3");
+
+print("value of number 4 is $number 4");
+
+string ch: "Hello Flutter";
+
+print (" value of ch = $ch");
+
+bool number 5 = true;
+
+print (" value of number 5: $ number 5");
+}
