@@ -1,0 +1,10 @@
+ void main(){
+
+Print ("fy IT Program ");
+
+Print ("${1+2}");
+
+print( "value of 2 +3 id ${ 2 +3 }");
+
+Print ( "a b c + def");
+}
