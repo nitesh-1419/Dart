@@ -1,0 +1,8 @@
+void main(){
+int a=10;
+int b=5;
+print(" the sum of a and b is ${a + b }");
+String var1="Hello";
+String var2= "flutter";
+print(" $var1+ $var2");
+}

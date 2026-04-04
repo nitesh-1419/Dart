@@ -1,0 +1,14 @@
+import 'dart:io';
+
+void main() {
+  // Taking input from user
+  print("Enter a year:");
+  int year = int.parse(stdin.readLineSync()!);
+
+  // Leap year logic
+  if (year % 4 == 0) {
+    print("$year is a Leap Year");
+  } else {
+    print("$year is NOT a Leap Year");
+  }
+}
