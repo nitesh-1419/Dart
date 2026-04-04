@@ -1,0 +1,9 @@
+void main(){
+int var1=10;
+
+print ("value of variable 1 is ${var1}");
+print ("value of variable 1 is ${var1}");
+
+num var2=20.5;
+print ( "value of variable 2 is $var2");
+}
